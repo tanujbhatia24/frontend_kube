@@ -1,10 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AdminDashboard from "./components/AdminDashboard/adminDashboard";
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar/navBar";
+import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <p> Hello World...!!!!!</p>
+    <div
+      style={{
+        display: "flex",
+        height: "100%",
+        backgroundColor: "rgb(249, 250, 251)",
+      }}
+    >
+      <CssBaseline />
+      <NavBar />
+      <main
+        style={{
+          flexGrow: 1,
+          padding: "2em",
+          height: "100%",
+        }}
+      >
+        <Routes>
+          <Route path='/' element={<AdminDashboard />} />
+        </Routes>
+      </main>
     </div>
   );
 }
