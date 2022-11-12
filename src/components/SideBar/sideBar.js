@@ -15,7 +15,8 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import avatar from "../../images/avatar_default.png";
+import profileImage from "../../images/avatar_default.png";
+import userImage from "../../images/illustration_avatar.png";
 import BookIcon from "@mui/icons-material/Book";
 import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -67,12 +68,12 @@ const sideBar = () => {
           padding: "16px 20px",
           borderRadius: "10px",
           backgroundColor: "rgba(145, 158, 171, 0.25)",
-          width: "70%",
+          width: "80%",
         }}
       >
         <Avatar
           alt='User'
-          src={avatar}
+          src={profileImage}
           sx={{ width: "40px", height: "40px" }}
         />
         <Typography
@@ -98,8 +99,29 @@ const sideBar = () => {
       </List>
 
       {/* Upgrade */}
-      <Box textAlign='center'>
-        <Button variant='contained'>Upgrade</Button>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Avatar
+          alt='User'
+          src={userImage}
+          sx={{ width: "80px", height: "80px", mt: 5, mb: 2 }}
+        />
+        <Typography variant='h6' gutterBottom>
+          Get more?
+        </Typography>
+        <Typography gutterBottom>From only $69</Typography>
+
+        <Button
+          variant='contained'
+          sx={{ textTransform: "none", fontWeight: "700", mt: 2 }}
+        >
+          Upgrade to Pro
+        </Button>
       </Box>
     </Box>
   );

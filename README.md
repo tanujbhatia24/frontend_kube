@@ -17,3 +17,4 @@ https://github.com/minimal-ui-kit/material-kit-react
 https://minimal-kit-react.vercel.app/dashboard/app
 https://github.com/UnpredictablePrashant/learnerReportCS_frontend
 https://lrccapstone.atlassian.net/jira/your-work
+https://github.com/UnpredictablePrashant/learnerReportCS_frontend/pull/1

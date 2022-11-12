@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, AppBar, Toolbar, IconButton, Divider } from "@mui/material";
+import { Drawer, AppBar, Toolbar, Box, IconButton } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -20,7 +20,6 @@ const navBar = () => {
       >
         <Toolbar
           sx={{
-            marginLeft: "200px",
             display: "flex",
             justifyContent: "space-between",
           }}
@@ -28,15 +27,18 @@ const navBar = () => {
           <IconButton>
             <SearchIcon />
           </IconButton>
-          <IconButton>
-            <LanguageIcon />
-          </IconButton>
-          <IconButton>
-            <NotificationsIcon />
-          </IconButton>
-          <IconButton>
-            <AccountCircle />
-          </IconButton>
+
+          <Box>
+            <IconButton>
+              <LanguageIcon />
+            </IconButton>
+            <IconButton>
+              <NotificationsIcon />
+            </IconButton>
+            <IconButton>
+              <AccountCircle />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -52,6 +54,9 @@ const navBar = () => {
             sx: {
               backgroundColor: "rgb(249, 250, 251)",
               width: `${drawerWidth}px`,
+              overflow: "auto",
+
+              height: "100%",
             },
           }}
         >
