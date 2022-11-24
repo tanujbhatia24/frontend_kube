@@ -6,3 +6,12 @@ export async function getDashboardData() {
     return [];
   }
 }
+
+export async function getUsers() {
+  try {
+    const response = await fetch("/api/users");
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}

@@ -1,5 +1,6 @@
 import "./App.css";
 import AdminDashboard from "./components/AdminDashboard/adminDashboard";
+import Users from "./components/Users/Users";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
@@ -24,6 +25,7 @@ function App() {
       >
         <Routes>
           <Route path='/' element={<AdminDashboard />} />
+          <Route path='/users' element={<Users />} />
         </Routes>
       </main>
     </div>

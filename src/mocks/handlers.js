@@ -25,8 +25,24 @@ const dashBoardInfo = [
   },
 ];
 
+const user = () => ({
+  id: "1",
+  name: "Suprabha",
+  company: "Amazon",
+  role: "Full Stack Developer",
+  verified: "Yes",
+  status: "Active",
+});
+
+const userList = [...Array(50).keys()].map(() => ({
+  ...user(),
+}));
+
 export const handlers = [
   rest.get("/api/dashboard", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(dashBoardInfo));
+  }),
+  rest.get("/api/users", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(userList));
   }),
 ];
