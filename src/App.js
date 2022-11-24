@@ -35,3 +35,14 @@ function App() {
 }
 
 export default App;
+
+// "repository": {
+//   "type": "git",
+//   "url": "git+https://github.com/UnpredictablePrashant/learnerReportCS_frontend.git"
+// },
+// "author": "",
+// "license": "ISC",
+// "bugs": {
+//   "url": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend/issues"
+// },
+// "homepage": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend#readme"

@@ -22,7 +22,6 @@ import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import { Link } from "react-router-dom";
-import "./sideBar.css";
 
 const menuItems = [
   {

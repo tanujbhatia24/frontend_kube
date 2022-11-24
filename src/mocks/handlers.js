@@ -1,6 +1,7 @@
 // src/mocks/handlers.js
 // src/mocks/handlers.js
 import { rest } from "msw";
+import { faker } from "@faker-js/faker";
 
 const dashBoardInfo = [
   {
@@ -26,10 +27,10 @@ const dashBoardInfo = [
 ];
 
 const user = () => ({
-  id: "1",
-  name: "Suprabha",
-  company: "Amazon",
-  role: "Full Stack Developer",
+  id: faker.datatype.uuid(),
+  name: faker.name.fullName(),
+  company: faker.company.name(),
+  role: faker.commerce.product(),
   verified: "Yes",
   status: "Active",
 });

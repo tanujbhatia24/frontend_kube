@@ -5,8 +5,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@faker-js/faker": "^7.6.0",
     "@mui/icons-material": "^5.10.15",
     "@mui/material": "^5.10.15",
+    "@mui/x-data-grid": "^5.17.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -46,17 +48,5 @@
   },
   "msw": {
     "workerDirectory": "public"
-  },
-  "description": "Building the docker image. React application is running at port 3000 inside the container and is exposed at port 80 in host machine.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UnpredictablePrashant/learnerReportCS_frontend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend/issues"
-  },
-  "homepage": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend#readme"
+  }
 }
