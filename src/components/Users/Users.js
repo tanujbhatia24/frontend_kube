@@ -19,16 +19,6 @@ const Users = () => {
     });
   }, []);
 
-  // function generateRandom() {
-  //   var length = 8,
-  //     charset =
-  //       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-  //     retVal = "";
-  //   for (var i = 0, n = charset.length; i < length; ++i) {
-  //     retVal += charset.charAt(Math.floor(Math.random() * n));
-  //   }
-  //   return retVal;
-  // }
   return (
     <div style={{ marginTop: 100, height: 400, width: "100%" }}>
       <DataGrid

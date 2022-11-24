@@ -27,7 +27,7 @@ const menuItems = [
   {
     name: "Dashboard",
     icon: <DashboardIcon />,
-    path: "/",
+    path: "/dashboard",
   },
   {
     name: "User",
