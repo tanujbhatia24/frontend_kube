@@ -4,6 +4,7 @@ import Users from "./components/Users/Users";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
+import Main from "../src/components/SignIn/Main";
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
         }}
       >
         <Routes>
-          <Route path='/' element={<AdminDashboard />} />
+          <Route path='/dashboard' element={<AdminDashboard />} />
           <Route path='/users' element={<Users />} />
+          <Route path='/' element={<Main />} />
         </Routes>
       </main>
     </div>
