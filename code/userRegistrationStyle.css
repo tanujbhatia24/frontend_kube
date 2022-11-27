@@ -46,6 +46,7 @@ body {
 /* container CSS */
 .mainForm {
     display: flex;
+    height: 90vh;
     justify-content: center;
     align-items: center;
     padding: 10px;
