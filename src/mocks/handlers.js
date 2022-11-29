@@ -1,6 +1,5 @@
-// src/mocks/handlers.js
-// src/mocks/handlers.js
 import { rest } from "msw";
+import { faker } from "@faker-js/faker";
 
 const dashBoardInfo = [
   {
@@ -25,8 +24,32 @@ const dashBoardInfo = [
   },
 ];
 
+const user = () => ({
+  id: faker.datatype.uuid(),
+  user: {
+    image: faker.image.avatar(),
+    name: faker.name.fullName(),
+  },
+
+  company: faker.company.name(),
+  role: faker.helpers.arrayElement([
+    "Hr Manager",
+    "Full Stack Developer",
+    "Project Manager",
+  ]),
+  verified: faker.helpers.arrayElement(["Yes", "No"]),
+  status: faker.helpers.arrayElement(["Active", "Banned"]),
+});
+
+const userList = [...Array(50).keys()].map(() => ({
+  ...user(),
+}));
+
 export const handlers = [
   rest.get("/api/dashboard", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(dashBoardInfo));
+  }),
+  rest.get("/api/users", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(userList));
   }),
 ];

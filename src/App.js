@@ -1,9 +1,10 @@
 import "./App.css";
 import AdminDashboard from "./components/AdminDashboard/adminDashboard";
+import Users from "./components/Users/Users";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
-import Main from "../src/components/SignIn/Main"
+import Main from "../src/components/SignIn/Main";
 
 function App() {
   return (
@@ -24,8 +25,10 @@ function App() {
         }}
       >
         <Routes>
+          <Route path='/dashboard' element={<AdminDashboard />} />
+          <Route path='/users' element={<Users />} />
           <Route path='/' element={<AdminDashboard />} /> 
-          <Route path='/login' element={<Main />} /> 
+          <Route path='/login' element={<Main />} />
         </Routes>
       </main>
     </div>
@@ -33,3 +36,14 @@ function App() {
 }
 
 export default App;
+
+// "repository": {
+//   "type": "git",
+//   "url": "git+https://github.com/UnpredictablePrashant/learnerReportCS_frontend.git"
+// },
+// "author": "",
+// "license": "ISC",
+// "bugs": {
+//   "url": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend/issues"
+// },
+// "homepage": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend#readme"
