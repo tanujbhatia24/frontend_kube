@@ -24,7 +24,8 @@ function App() {
         }}
       >
         <Routes>
-          <Route path='/' element={<Main />} /> 
+          <Route path='/' element={<AdminDashboard />} /> 
+          <Route path='/login' element={<Main />} /> 
         </Routes>
       </main>
     </div>

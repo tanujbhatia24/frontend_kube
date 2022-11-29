@@ -49,14 +49,8 @@
   },
   "description": "Building the docker image. React application is running at port 3000 inside the container and is exposed at port 80 in host machine.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UnpredictablePrashant/learnerReportCS_frontend.git"
-  },
+ 
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend/issues"
-  },
-  "homepage": "https://github.com/UnpredictablePrashant/learnerReportCS_frontend#readme"
+  "license": "ISC"
+
 }

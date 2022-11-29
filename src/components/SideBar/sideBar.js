@@ -11,6 +11,7 @@ import {
   IconButton,
   Avatar,
 } from "@mui/material";
+import {Navigate ,Link } from "react-router-dom";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
@@ -24,7 +25,7 @@ import LogoDevIcon from "@mui/icons-material/LogoDev";
 
 const menuItems = [
   {
-    name: "Dashboard",
+    name: <Link to="/" style={{textDecoration:"none",color:"black"}}>Dashboard</Link>,
     icon: <DashboardIcon />,
   },
   {
@@ -40,7 +41,7 @@ const menuItems = [
     icon: <BookIcon />,
   },
   {
-    name: "Login",
+    name: <Link to="/login" style={{textDecoration:"none",color:"black"}}>Login</Link>,
     icon: <LockOpenIcon />,
   },
   {
