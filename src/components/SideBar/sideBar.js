@@ -21,31 +21,38 @@ import BookIcon from "@mui/icons-material/Book";
 import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
+import { Link } from "react-router-dom";
 
 const menuItems = [
   {
     name: "Dashboard",
     icon: <DashboardIcon />,
+    path: "/dashboard",
   },
   {
     name: "User",
     icon: <AccountBoxIcon />,
+    path: "/users",
   },
   {
     name: "Product",
     icon: <ShoppingCartIcon />,
+    path: "/product",
   },
   {
     name: "Blog",
     icon: <BookIcon />,
+    path: "/blog",
   },
   {
     name: "Login",
     icon: <LockOpenIcon />,
+    path: "/login",
   },
   {
     name: "Not Found",
     icon: <DoNotDisturbAltIcon />,
+    path: "/404",
   },
 ];
 const sideBar = () => {
@@ -91,7 +98,9 @@ const sideBar = () => {
             <ListItem key={item.name} disablePadding>
               <ListItemButton>
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.name} />
+                <Link to={item.path} style={{ textDecoration: "none" }}>
+                  <ListItemText primary={item.name} />
+                </Link>
               </ListItemButton>
             </ListItem>
           );
@@ -128,3 +137,5 @@ const sideBar = () => {
 };
 
 export default sideBar;
+
+//

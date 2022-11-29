@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Container, Icon } from "@mui/material";
+import { Card, CardContent, Typography, Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
@@ -7,33 +7,14 @@ import WindowIcon from "@mui/icons-material/Window";
 import AdbIcon from "@mui/icons-material/Adb";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import { getDashboardData } from "../../api/queries";
-
-// const dashBoardData = [
-//   {
-//     name: "Weekly Sales",
-//     value: "714k",
-//     color: "rgb(209, 233, 252)",
-//     icon: <AdbIcon />,
-//   },
-//   {
-//     name: "New Users",
-//     value: "1.35m",
-//     color: "rgb(208, 242, 255)",
-//     icon: <AppleIcon />,
-//   },
-//   {
-//     name: "Item Orders",
-//     value: "1.72m",
-//     color: "rgb(255, 247, 205)",
-//     icon: <WindowIcon />,
-//   },
-//   {
-//     name: "Bug Reports",
-//     value: "234",
-//     color: "rgb(255, 231, 217)",
-//     icon: <BugReportIcon />,
-//   },
-// ];
+import WebsiteVisit from "./websiteVisit";
+import CurrentSubject from "./currentSubject";
+import CurrentVisit from "./currentVisit";
+import ConversionRate from "./conversionRate";
+import NewsUpdate from "./newsUpdate";
+import Tasks from "./tasks";
+import TrafficBySite from "./trafficBySite";
+import OrderTimeline from "./orderTimeline";
 
 const AdminDashboard = () => {
   const [dashBoardData, setDashboardData] = useState([]);
@@ -67,43 +48,73 @@ const AdminDashboard = () => {
 
   return (
     <Box>
-      <Container maxWidth='sm' style={{ marginTop: "50px" }}>
+      <Container
+        maxWidth='sm'
+        style={{ marginTop: "50px", alignItems: "left" }}
+      >
         <Typography variant='h4' gutterBottom>
           Hi, Welcome back
         </Typography>
       </Container>
 
-      <Box
-        sx={{
-          display: "flex",
-        }}
-      >
+      <Grid container sx={{ marginBottom: "20px" }}>
         {dashBoardData?.map((d) => {
           return (
-            <Card
-              key={d.name}
-              sx={{
-                minWidth: 200,
-                margin: "10px",
-                padding: "24px",
-                backgroundColor: d.color,
-              }}
-            >
-              <CardContent sx={{ alignItems: "center" }}>
-                <IconButton>{getIcon(d.name)}</IconButton>
-                <Typography variant='h3' gutterBottom>
-                  {d.value}
-                </Typography>
-                <Typography variant='h6' gutterBottom>
-                  {d.name}
-                </Typography>
-              </CardContent>
-            </Card>
+            <Grid item xs={3} key={d.name}>
+              <Card
+                sx={{
+                  minWidth: 200,
+                  margin: "10px",
+                  padding: "24px",
+                  backgroundColor: d.color,
+                }}
+              >
+                <CardContent sx={{ alignItems: "center" }}>
+                  <IconButton>{getIcon(d.name)}</IconButton>
+                  <Typography variant='h3' gutterBottom>
+                    {d.value}
+                  </Typography>
+                  <Typography variant='h6' gutterBottom>
+                    {d.name}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           );
         })}
+      </Grid>
+      <Box>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            <WebsiteVisit />
+          </Grid>
+          <Grid item xs={4}>
+            <CurrentVisit />
+          </Grid>
+          <Grid item xs={8}>
+            <ConversionRate />
+          </Grid>
+          <Grid item xs={4}>
+            <CurrentSubject />
+          </Grid>
+          <Grid item xs={8}>
+            <NewsUpdate />
+          </Grid>
+          <Grid item xs={4}>
+            <OrderTimeline />
+          </Grid>
+          <Grid item xs={4}>
+            <TrafficBySite />
+          </Grid>
+          <Grid item xs={8}>
+            <Tasks />
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
 };
 
 export default AdminDashboard;
+
+//create route for user page - clickable button User in admin page.
