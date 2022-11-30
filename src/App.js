@@ -1,12 +1,19 @@
 import "./App.css";
 import AdminDashboard from "./components/AdminDashboard/adminDashboard";
 import Users from "./components/Users/Users";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
 import Main from "../src/components/SignIn/Main";
+import AuthRouter from "./AuthRouter/AuthRouter";
+import UserRouter from "./AuthRouter/UserRouter";
+import DataContext from "./context/DataContext";
+import {useContext}from "react"
 
 function App() {
+  let ctx = useContext(DataContext);
+
+
   return (
     <div
       style={{
@@ -16,7 +23,9 @@ function App() {
       }}
     >
       <CssBaseline />
-      <NavBar />
+      {
+        ctx.isloggedin && <NavBar/>
+      }
       <main
         style={{
           flexGrow: 1,
@@ -25,10 +34,20 @@ function App() {
         }}
       >
         <Routes>
-          <Route path='/dashboard' element={<AdminDashboard />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/' element={<AdminDashboard />} /> 
-          <Route path='/login' element={<Main />} />
+          {/* <Route path='/login' element={<Main />} /> */}
+          <Route path='/users' element={
+            <UserRouter>
+              <Users/>
+            </UserRouter>
+        } />
+          <Route path='/' element={
+            <AuthRouter>
+              <AdminDashboard /> 
+
+            </AuthRouter>
+          } /> 
+         
+       
         </Routes>
       </main>
     </div>
