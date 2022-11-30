@@ -15,11 +15,11 @@ const columns = [
     flex: 1,
     headerName: "Name",
     sortable: true,
-    minWidth: 300,
+    minWidth: 200,
     renderCell: (params) => {
       return (
         <>
-          <Avatar src={params.value.image} sx={{ mr: "10px" }} />
+          <Avatar src={params.value.image} sx={{ mr: "8px" }} />
           {params.value.name}
         </>
       );
@@ -29,7 +29,7 @@ const columns = [
     field: "company",
     headerName: "Company",
     sortable: false,
-    minWidth: 300,
+    minWidth: 250,
     headerClassName: "users-header",
     flex: 1,
   },
@@ -98,16 +98,16 @@ const Users = () => {
   }, []);
 
   return (
-    <Box sx={{ padding: "0 100px" }}>
+    <Box sx={{ padding: "10px" }}>
       <Box
         sx={{
-          marginTop: 10,
+          marginTop: 4,
           mb: 5,
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <Typography variant='h5' gutterBottom>
+        <Typography variant='h4' gutterBottom>
           User
         </Typography>
         <Button variant='contained'>+ New User</Button>

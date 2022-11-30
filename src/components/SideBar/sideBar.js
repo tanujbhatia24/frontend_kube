@@ -11,6 +11,7 @@ import {
   IconButton,
   Avatar,
 } from "@mui/material";
+import {Navigate ,Link } from "react-router-dom";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
@@ -21,11 +22,11 @@ import BookIcon from "@mui/icons-material/Book";
 import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const menuItems = [
   {
-    name: "Dashboard",
+    name: <Link to="/" style={{textDecoration:"none",color:"black"}}>Dashboard</Link>,
     icon: <DashboardIcon />,
     path: "/dashboard",
   },
@@ -45,7 +46,7 @@ const menuItems = [
     path: "/blog",
   },
   {
-    name: "Login",
+    name: <Link to="/login" style={{textDecoration:"none",color:"black"}}>Login</Link>,
     icon: <LockOpenIcon />,
     path: "/login",
   },
