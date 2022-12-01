@@ -5,6 +5,21 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
 import Main from "../src/components/SignIn/Main";
+
+import Login from "./components/Login/Login";
+import { useState } from "react";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userData, setUserData] = useState();
+  const [authToken, setAuthToken] = useState();
+  const loginHandler = (data) => {
+    console.log(data);
+    setIsLoggedIn(data.isLoggedIn);
+    setUserData(data.userDetails);
+    setAuthToken(data.token);
+  };
+
 import AuthRouter from "./AuthRouter/AuthRouter";
 import UserRouter from "./AuthRouter/UserRouter";
 import DataContext from "./context/DataContext";
@@ -12,6 +27,7 @@ import {useContext}from "react"
 
 function App() {
   let ctx = useContext(DataContext);
+
 
 
   return (
@@ -23,9 +39,9 @@ function App() {
       }}
     >
       <CssBaseline />
-      {
-        ctx.isloggedin && <NavBar/>
-      }
+      {isLoggedIn && <NavBar />}
+      
+
       <main
         style={{
           flexGrow: 1,
@@ -34,20 +50,16 @@ function App() {
         }}
       >
         <Routes>
-          {/* <Route path='/login' element={<Main />} /> */}
-          <Route path='/users' element={
-            <UserRouter>
-              <Users/>
-            </UserRouter>
-        } />
-          <Route path='/' element={
-            <AuthRouter>
-              <AdminDashboard /> 
 
-            </AuthRouter>
-          } /> 
+          <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
+          {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
+          {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
+          {isLoggedIn &&<Route path='/main' element={<Main />} />}
+
+          
          
        
+
         </Routes>
       </main>
     </div>

@@ -88,7 +88,7 @@ const columns = [
   },
 ];
 
-const Users = () => {
+const Users = (props) => {
   const [listOfUsers, setListOfUsers] = useState([]);
 
   useEffect(() => {
