@@ -1,10 +1,11 @@
 import "./App.css";
 import AdminDashboard from "./components/AdminDashboard/adminDashboard";
 import Users from "./components/Users/Users";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
 import Main from "../src/components/SignIn/Main";
+
 import Login from "./components/Login/Login";
 import { useState } from "react";
 
@@ -18,6 +19,17 @@ function App() {
     setUserData(data.userDetails);
     setAuthToken(data.token);
   };
+
+import AuthRouter from "./AuthRouter/AuthRouter";
+import UserRouter from "./AuthRouter/UserRouter";
+import DataContext from "./context/DataContext";
+import {useContext}from "react"
+
+function App() {
+  let ctx = useContext(DataContext);
+
+
+
   return (
     <div
       style={{
@@ -29,6 +41,7 @@ function App() {
       <CssBaseline />
       {isLoggedIn && <NavBar />}
       
+
       <main
         style={{
           flexGrow: 1,
@@ -37,10 +50,16 @@ function App() {
         }}
       >
         <Routes>
+
           <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
           {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
           {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/main' element={<Main />} />}
+
+          
+         
+       
+
         </Routes>
       </main>
     </div>
