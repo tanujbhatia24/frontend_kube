@@ -20,13 +20,9 @@ function App() {
     setAuthToken(data.token);
   };
 
-import AuthRouter from "./AuthRouter/AuthRouter";
-import UserRouter from "./AuthRouter/UserRouter";
-import DataContext from "./context/DataContext";
-import {useContext}from "react"
 
-function App() {
-  let ctx = useContext(DataContext);
+
+
 
 
 
