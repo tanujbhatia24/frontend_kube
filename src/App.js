@@ -14,6 +14,7 @@ import StudentDashboard from "./components/StudentDashboard/Pages/StudentDashboa
 import { Discusion } from "./components/StudentDashboard/Pages/Discusion";
 import Ticket from "./components/StudentDashboard/Pages/Ticket";
 import { ChakraProvider } from '@chakra-ui/react'
+import UserRegistration from "./components/code/UserRegistrationUI";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -56,6 +57,7 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
+          <Route path='/userregister' element={<UserRegistration/>}/>
           {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
           {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/faculty' element={<Faculty authToken={authToken}/>} />}

@@ -22,6 +22,7 @@ import BookIcon from "@mui/icons-material/Book";
 import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
+import SimpleModal from "../code/ModalUser";
 // import { Link } from "react-router-dom";
 
 const menuItems = [
@@ -50,11 +51,12 @@ const menuItems = [
   //   icon: <LockOpenIcon />,
   //   path: "/login",
   // },
-  // {
-  //   name: "Not Found",
-  //   icon: <DoNotDisturbAltIcon />,
-  //   path: "/404",
-  // },
+  {
+   
+    name: <SimpleModal />,
+    icon: <AccountBoxIcon />,
+    // path: "/404",
+  },
 ];
 const sideBar = () => {
   return (
