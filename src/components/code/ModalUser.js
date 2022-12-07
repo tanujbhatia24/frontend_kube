@@ -8,8 +8,8 @@ function rand() {
 }
 
 function getModalStyle() {
-  const top = 30 + rand();
-  const left = 30 + rand();
+  const top = 50 + rand();
+  const left = 50 + rand();
 
   return {
     top: `${top}%`,
@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
         width: 1000,
-        height: 700,
- 
+   
+    
     backgroundColor: theme.palette.background.paper,
     border: '1px solid #000',
     boxShadow: theme.shadows[5],

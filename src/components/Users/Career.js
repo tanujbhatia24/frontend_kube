@@ -114,10 +114,7 @@ const Career = (props) => {
           justifyContent: "space-between",
         }}
       >
-        <Typography variant='h4' gutterBottom>
-          User
-        </Typography>
-        <Button variant='contained'>+ New User</Button>
+       
       </Box>
 
       <Box
