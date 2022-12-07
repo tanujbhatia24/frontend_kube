@@ -54,6 +54,8 @@ const Login = (props) => {
             navigate("/dashboard");
           } else if (res.data.result.userType === "student") {
             navigate("/student");
+          } else if (res.data.result.userType === "faculty") { 
+            navigate("/facultydashboard");
           }
         }
       })

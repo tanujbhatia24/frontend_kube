@@ -4,9 +4,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
-import SideBar from "../SideBar/sideBar";
+import SideBar from "../SideBar/FacultySidebar";
 
-const navBar = () => {
+const FacultyNavbar = () => {
   const drawerWidth = 280;
   return (
     <>
@@ -29,7 +29,7 @@ const navBar = () => {
           </IconButton>
 
           <Box>
-          
+            
             <IconButton>
               <NotificationsIcon />
             </IconButton>
@@ -65,4 +65,4 @@ const navBar = () => {
   );
 };
 
-export default navBar;
+export default FacultyNavbar;

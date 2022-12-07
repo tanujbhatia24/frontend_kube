@@ -1,18 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import UserRegistration from './UserRegistrationUI';
+import QuestionUpload from '../FacultyDashboard.js/QuestionUploadForm/QuestionUpload';
 
 
 
 function getModalStyle() {
   const top = 7
-  const left = 18
+  const left = 20 
 
   return {
     top: `${top}%`,
     left: `${left}%`,
-    // transform: `translate(-${top}%, -${left}%)`,
+   
   };
 }
 
@@ -45,14 +45,14 @@ export default function SimpleModal() {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-    <UserRegistration/>
+  <QuestionUpload/>
     </div>
   );
 
   return (
     <div>
       <button type="button" onClick={handleOpen} style={{border:"none",background:"none",color:"#551A8B"}}>
-        Register NewUsers
+      Question Upload
       </button>
       <Modal
         open={open}

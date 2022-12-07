@@ -3,6 +3,7 @@ import AdminDashboard from "./components/AdminDashboard/adminDashboard";
 import Users from "./components/Users/Users";
 import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
+import FacultyNavbar from "./components/NavBar/FacultyNavbar";
 import { CssBaseline } from "@mui/material";
 import Main from "../src/components/SignIn/Main";
 import Faculty from "./components/Users/Faculty";
@@ -14,7 +15,7 @@ import StudentDashboard from "./components/StudentDashboard/Pages/StudentDashboa
 import { Discusion } from "./components/StudentDashboard/Pages/Discusion";
 import Ticket from "./components/StudentDashboard/Pages/Ticket";
 import { ChakraProvider } from '@chakra-ui/react'
-import UserRegistration from "./components/code/UserRegistrationUI";
+import FacultyDashboard from "./components/FacultyDashboard.js/adminDashboard";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -45,6 +46,7 @@ function App() {
     >
       <CssBaseline />
       {usertype ==="admin" && isLoggedIn && <NavBar />}
+      {usertype ==="faculty" && isLoggedIn && <FacultyNavbar />}
       
 
       <main
@@ -57,8 +59,9 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
-          <Route path='/userregister' element={<UserRegistration/>}/>
+          
           {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
+          {isLoggedIn &&<Route path='/facultydashboard' element={<FacultyDashboard />} />}
           {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/faculty' element={<Faculty authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/career' element={<Career authToken={authToken}/>} />}
