@@ -7,7 +7,7 @@ const Panel = ({ topic }) => {
   // console.log(topic);
   return (
     <div>
-      <Accordion defaultIndex={[0]} allowMultiple>
+      {/* <Accordion defaultIndex={[0]} allowMultiple>
         {topic.map((item) =>
           item.assignment !== undefined ? (
             <Subpanel2 topic={item} />
@@ -15,7 +15,7 @@ const Panel = ({ topic }) => {
             <Subpanel topic={item} />
           )
         )}
-      </Accordion>
+      </Accordion> */}
     </div>
   );
 };

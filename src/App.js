@@ -10,16 +10,22 @@ import Career from "./components/Users/Career";
 
 import Login from "./components/Login/Login";
 import { useState } from "react";
+import StudentDashboard from "./components/StudentDashboard/Pages/StudentDashboard";
+import { Discusion } from "./components/StudentDashboard/Pages/Discusion";
+import Ticket from "./components/StudentDashboard/Pages/Ticket";
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userData, setUserData] = useState();
   const [authToken, setAuthToken] = useState();
+  const [usertype,setUsertype] = useState('');
   const loginHandler = (data) => {
     console.log(data);
     setIsLoggedIn(data.isLoggedIn);
     setUserData(data.userDetails);
     setAuthToken(data.token);
+    setUsertype(data.type)
   };
 
 
@@ -37,7 +43,7 @@ function App() {
       }}
     >
       <CssBaseline />
-      {isLoggedIn && <NavBar />}
+      {usertype ==="admin" && isLoggedIn && <NavBar />}
       
 
       <main
@@ -55,8 +61,14 @@ function App() {
           {isLoggedIn &&<Route path='/faculty' element={<Faculty authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/career' element={<Career authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/main' element={<Main />} />}
-
-          
+          {isLoggedIn && <Route path='/student' element={
+            <ChakraProvider>
+            <StudentDashboard />
+            </ChakraProvider>
+          } />}
+          {isLoggedIn &&<Route path='/discussion' element={<Discusion/>} />}
+          {isLoggedIn &&<Route path='/ticket' element={<Ticket/>} />}
+       
          
        
 

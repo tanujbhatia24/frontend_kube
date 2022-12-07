@@ -47,10 +47,13 @@ const Login = (props) => {
           props.onLogin({
             isLoggedIn: true,
             userDetails: res.data.result,
+            type:res.data.result.userType,
             token: res.data.token,
           });
           if (res.data.result.userType === "admin") {
             navigate("/dashboard");
+          } else if (res.data.result.userType === "student") {
+            navigate("/student");
           }
         }
       })
