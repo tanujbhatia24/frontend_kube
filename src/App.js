@@ -5,6 +5,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import { CssBaseline } from "@mui/material";
 import Main from "../src/components/SignIn/Main";
+import Faculty from "./components/Users/Faculty";
+import Career from "./components/Users/Career";
 
 import Login from "./components/Login/Login";
 import { useState } from "react";
@@ -50,6 +52,8 @@ function App() {
           <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
           {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
           {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
+          {isLoggedIn &&<Route path='/faculty' element={<Faculty authToken={authToken}/>} />}
+          {isLoggedIn &&<Route path='/career' element={<Career authToken={authToken}/>} />}
           {isLoggedIn &&<Route path='/main' element={<Main />} />}
 
           

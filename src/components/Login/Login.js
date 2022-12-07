@@ -49,8 +49,8 @@ const Login = (props) => {
             userDetails: res.data.result,
             token: res.data.token,
           });
-          if (res.data.result.userType === "student") {
-            navigate("/users");
+          if (res.data.result.userType === "admin") {
+            navigate("/dashboard");
           }
         }
       })

@@ -90,14 +90,14 @@ const columns = [
   },
 ];
 
-const Users = (props) => {
+const Faculty = (props) => {
  let id= faker.datatype.uuid()
   const [listOfUsers, setListOfUsers] = useState([]);
 
   useEffect(() => {
   
     async function fetchUsers() {
-      let res = await axios.get("http://localhost:3000/student/getstudent")
+      let res = await axios.get("http://localhost:3000/faculty/getfaculty")
       setListOfUsers(res.data.result);
     }
     fetchUsers()
@@ -165,4 +165,4 @@ const Users = (props) => {
   );
 };
 
-export default Users;
+export default Faculty;

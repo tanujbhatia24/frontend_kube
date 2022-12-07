@@ -26,35 +26,35 @@ import LogoDevIcon from "@mui/icons-material/LogoDev";
 
 const menuItems = [
   {
-    name: <Link to="/" style={{textDecoration:"none",color:"black"}}>Dashboard</Link>,
+    name: "Dashboard",
     icon: <DashboardIcon />,
     path: "/dashboard",
   },
   {
-    name: "User",
+    name: "Students",
     icon: <AccountBoxIcon />,
     path: "/users",
   },
   {
-    name: "Product",
-    icon: <ShoppingCartIcon />,
-    path: "/product",
+    name: "Faculty",
+    icon: <AccountBoxIcon />,
+    path: "/faculty",
   },
   {
-    name: "Blog",
-    icon: <BookIcon />,
-    path: "/blog",
+    name: "CareerServices",
+    icon: <AccountBoxIcon />,
+    path: "/career",
   },
-  {
-    name: <Link to="/login" style={{textDecoration:"none",color:"black"}}>Login</Link>,
-    icon: <LockOpenIcon />,
-    path: "/login",
-  },
-  {
-    name: "Not Found",
-    icon: <DoNotDisturbAltIcon />,
-    path: "/404",
-  },
+  // {
+  //   name: <Link to="/login" style={{textDecoration:"none",color:"black"}}>Login</Link>,
+  //   icon: <LockOpenIcon />,
+  //   path: "/login",
+  // },
+  // {
+  //   name: "Not Found",
+  //   icon: <DoNotDisturbAltIcon />,
+  //   path: "/404",
+  // },
 ];
 const sideBar = () => {
   return (
@@ -116,22 +116,7 @@ const sideBar = () => {
           alignItems: "center",
         }}
       >
-        <Avatar
-          alt='User'
-          src={userImage}
-          sx={{ width: "80px", height: "80px", mt: 5, mb: 2 }}
-        />
-        <Typography variant='h6' gutterBottom>
-          Get more?
-        </Typography>
-        <Typography gutterBottom>From only $69</Typography>
-
-        <Button
-          variant='contained'
-          sx={{ textTransform: "none", fontWeight: "700", mt: 2 }}
-        >
-          Upgrade to Pro
-        </Button>
+   
       </Box>
     </Box>
   );
