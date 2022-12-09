@@ -35,8 +35,8 @@ export default function QuestionUpload() {
     const classes = useStyles();
     const [value, setValue] = React.useState({});
     const [level, setLevel] = React.useState("")
-    const [msg,setMsg]=React.useState("")
-    const handleChange = (event) => {
+    const [msg,setMsg]=React.useState("");
+        const handleChange = (event) => {
         setValue((prev) => ({
             ...prev,
             [event.target.name]:event.target.value
@@ -58,6 +58,7 @@ export default function QuestionUpload() {
             tag_level: value.tag_level,
             skill_tag: value.skill_tag,
             sub_tag: value.sub_tag,
+            solution: value.solution,
             total_marks: total_marks
         })
         setMsg(res.data.message)
@@ -149,15 +150,17 @@ export default function QuestionUpload() {
                 <TextField
                     id="filled-full-width"
                     label="Solution Upload"
+                    name="solution"
                     style={{ margin: 8 }}
                     placeholder="Provide Solution here"
                     helperText="ex : you give link to github also"
                     fullWidth
                     multiline
                     minRows={3}
-                    name="question"
+                   
                     onChange={handleChange}
                     margin="normal"
+                    
                     
                     InputLabelProps={{
                         shrink: true
