@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Button } from "@mui/material";
 import axios from "axios"
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        justifyContent: "center",
+        
     },
     textField: {
         marginLeft: theme.spacing(1),
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         width: "20ch"
     }
 }));
-const currencies = [
+const Level = [
     {
         value: "beginner",
         label: "beginner"
@@ -37,16 +38,16 @@ export default function QuestionUpload() {
     const [level, setLevel] = React.useState("")
     const [msg,setMsg]=React.useState("")
     const handleChange = (event) => {
+        console.log(event.target.name ," ",event.target.value);
         setValue((prev) => ({
             ...prev,
             [event.target.name]:event.target.value
       }))
-        if (event.target.name === "tag_level") {
-            setLevel(event.target.value);
-      }
+       
     };
 
-    const handleClick = async() => {
+    const handleClick = async () => {
+       console.log(value);
         if (!value.question_title || !value.question || !value.tag_level || !value.skill_tag || !value.sub_tag) {
             alert("Please enter  * fields ")
             return;
@@ -60,13 +61,14 @@ export default function QuestionUpload() {
             sub_tag: value.sub_tag,
             total_marks: total_marks
         })
+        console.log(res.data);
         setMsg(res.data.message)
     }
 
     return (
         <div className={classes.root}>
             <div>
-            <p style={{color:"red",fontWeight:"bold"}}>{ msg}</p>
+            
                 <TextField
                     id="standard-full-width"
                     label="Question Title"
@@ -130,20 +132,22 @@ export default function QuestionUpload() {
                     variant="filled"
                 />
                 <TextField
-                    id="standard-select-currency"
+                    id="standard-select-currency-native"
                     select
                     label="Tag_level"
                     name="tag_level"
-                    value={level}
                     required
                     onChange={handleChange}
                     className={classes.textField}
                     helperText="Please select the skill level"
+                    SelectProps={{
+                        native: true,
+                      }}
                 >
-                    {currencies.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
+                    {Level.map((option) => (
+                        <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
                     ))}
                 </TextField>
                 <TextField
@@ -167,6 +171,7 @@ export default function QuestionUpload() {
                 <Button variant="contained" className={classes.textField} onClick={handleClick}>
                     Submit
                 </Button>
+                <p style={{ color: "red" }}>NOTICE:{ msg}</p>
             </div>
         </div>
     );

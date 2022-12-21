@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useContext } from "react";
 import {
   List,
   Typography,
@@ -13,17 +13,13 @@ import {
 } from "@mui/material";
 import {Navigate ,Link } from "react-router-dom";
 
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import profileImage from "../../images/avatar_default.png";
-import userImage from "../../images/illustration_avatar.png";
-import BookIcon from "@mui/icons-material/Book";
-import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
-import SimpleModal from "../code/ModalUser";
-// import { Link } from "react-router-dom";
+import DataContext from "../../context/DataContext";
+
+
 
 const menuItems = [
   {
@@ -46,19 +42,15 @@ const menuItems = [
     icon: <AccountBoxIcon />,
     path: "/career",
   },
-  // {
-  //   name: <Link to="/login" style={{textDecoration:"none",color:"black"}}>Login</Link>,
-  //   icon: <LockOpenIcon />,
-  //   path: "/login",
-  // },
   {
    
-    name: <SimpleModal />,
+    name: "UserRegister",
     icon: <AccountBoxIcon />,
-    // path: "/404",
+    path: "/registerUser",
   },
 ];
-const sideBar = () => {
+const SideBar = () => {
+  const ctx = useContext(DataContext);
   return (
     <Box>
       {/* Logo */}
@@ -90,7 +82,7 @@ const sideBar = () => {
           variant='h6'
           sx={{ ml: "16px", fontSize: "0.875rem", fontWeight: "600" }}
         >
-          Suprabha
+     {ctx.manage.userdetails.username}
         </Typography>
       </Box>
 
@@ -124,6 +116,5 @@ const sideBar = () => {
   );
 };
 
-export default sideBar;
+export default SideBar;
 
-//

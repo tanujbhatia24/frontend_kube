@@ -5,31 +5,21 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar/navBar";
 import FacultyNavbar from "./components/NavBar/FacultyNavbar";
 import { CssBaseline } from "@mui/material";
-import Main from "../src/components/SignIn/Main";
+
 import Faculty from "./components/Users/Faculty";
 import Career from "./components/Users/Career";
-
+import UserRegistration from "./components/code/UserRegistrationUI";
 import Login from "./components/Login/Login";
-import { useState } from "react";
-import StudentDashboard from "./components/StudentDashboard/Pages/StudentDashboard";
-import { Discusion } from "./components/StudentDashboard/Pages/Discusion";
-import Ticket from "./components/StudentDashboard/Pages/Ticket";
-import { ChakraProvider } from '@chakra-ui/react'
+import { useContext, useState } from "react";
+import QuestionUpload from "./components/FacultyDashboard.js/QuestionUploadForm/QuestionUpload";
+import DataContext from "./context/DataContext";
+
 import FacultyDashboard from "./components/FacultyDashboard.js/adminDashboard";
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userData, setUserData] = useState();
-  const [authToken, setAuthToken] = useState();
-  const [usertype,setUsertype] = useState('');
-  const loginHandler = (data) => {
-    console.log(data);
-    setIsLoggedIn(data.isLoggedIn);
-    setUserData(data.userDetails);
-    setAuthToken(data.token);
-    setUsertype(data.type)
-  };
 
+function App() {
+  const ctx = useContext(DataContext);
+  const manage = ctx.manage;
 
 
 
@@ -45,8 +35,8 @@ function App() {
       }}
     >
       <CssBaseline />
-      {usertype ==="admin" && isLoggedIn && <NavBar />}
-      {usertype ==="faculty" && isLoggedIn && <FacultyNavbar />}
+      {manage.usertype ==="admin" && manage.isLoggedIn && <NavBar />}
+      {manage.usertype ==="faculty" && manage.isLoggedIn && <FacultyNavbar />}
       
 
       <main
@@ -58,21 +48,17 @@ function App() {
       >
         <Routes>
 
-          <Route path='/' element={<Login onLogin={loginHandler}></Login>}/>
+          <Route path='/' element={<Login ></Login>}/>
           
-          {isLoggedIn &&<Route path='/dashboard' element={<AdminDashboard />} />}
-          {isLoggedIn &&<Route path='/facultydashboard' element={<FacultyDashboard />} />}
-          {isLoggedIn &&<Route path='/users' element={<Users authToken={authToken}/>} />}
-          {isLoggedIn &&<Route path='/faculty' element={<Faculty authToken={authToken}/>} />}
-          {isLoggedIn &&<Route path='/career' element={<Career authToken={authToken}/>} />}
-          {isLoggedIn &&<Route path='/main' element={<Main />} />}
-          {isLoggedIn && <Route path='/student' element={
-            <ChakraProvider>
-            <StudentDashboard />
-            </ChakraProvider>
-          } />}
-          {isLoggedIn &&<Route path='/discussion' element={<Discusion/>} />}
-          {isLoggedIn &&<Route path='/ticket' element={<Ticket/>} />}
+          {manage.isLoggedIn && <Route path='/dashboard' element={<AdminDashboard />} />}
+          {manage.isLoggedIn && <Route path='/facultydashboard' element={<FacultyDashboard />} />}
+          {manage.isLoggedIn && <Route path='/users' element={<Users authToken={manage.authToken} />} />}
+          {manage.isLoggedIn && <Route path='/faculty' element={<Faculty authToken={manage.authToken} />} />}
+          {manage.isLoggedIn && <Route path='/career' element={<Career authToken={manage.authToken} />} />}
+      
+          {manage.isLoggedIn && <Route path='/registerUser' element={<UserRegistration />} />}
+         {manage.isLoggedIn && <Route path='/questionUpload' element={<QuestionUpload/>} />}
+          
        
          
        

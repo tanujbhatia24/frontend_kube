@@ -18,14 +18,14 @@ const columns = [
     headerName: "Name",
     sortable: true,
     minWidth: 200,
-    renderCell: (params) => {
-      return (
-        <>
-          <Avatar src={params.value.image} sx={{ mr: "8px" }} />
-          {params.value.name}
-        </>
-      );
-    },
+    // renderCell: (params) => {
+    //   return (
+    //     <>
+    //       <Avatar src={params.value.userImage} sx={{ mr: "8px" }} />
+    //       {params.value.name}
+    //     </>
+    //   );
+    // },
   },
   {
     field: "fullname",

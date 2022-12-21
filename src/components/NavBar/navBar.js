@@ -5,6 +5,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 import SideBar from "../SideBar/sideBar";
+import AccountPopover from "./AccountPopover";
 
 const navBar = () => {
   const drawerWidth = 280;
@@ -29,13 +30,15 @@ const navBar = () => {
           </IconButton>
 
           <Box>
-          
+
             <IconButton>
               <NotificationsIcon />
             </IconButton>
             <IconButton>
-              <AccountCircle />
+     <AccountPopover/>
             </IconButton>
+
+
           </Box>
         </Toolbar>
       </AppBar>

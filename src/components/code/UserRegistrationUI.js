@@ -31,11 +31,7 @@ export default function UserRegistration() {
                   <span class="details">Phone Number</span>
                   <input type="text" placeholder="Enter your number" required />
                 </div>
-                {/* <div class="input-box">
-                  <span class="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, optio odit
-                    consectetur tempore laudantium quibusdam nemo quam eos accusamus...</span>
-
-                </div> */}
+                
               </div>
               <div class="emp-details">
                 {/* <span class="gender-title">Select the User type:</span> */}
