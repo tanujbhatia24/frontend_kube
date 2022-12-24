@@ -87,7 +87,7 @@ const Login = () => {
       setManageLogin((prev) => ({
         ...prev,
         isError: true,
-        errorMsg:err.response.data
+        errorMsg:err.data
       }))
       
     }

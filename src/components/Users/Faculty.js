@@ -9,6 +9,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { Button, Typography } from "@mui/material";
 import { faker } from "@faker-js/faker";
 import axios from "axios";
+import { GridToolbar } from '@mui/x-data-grid';
 
 const columns = [
   {
@@ -91,11 +92,11 @@ const columns = [
 ];
 
 const Faculty = (props) => {
- let id= faker.datatype.uuid()
+  let id = faker.datatype.uuid()
   const [listOfUsers, setListOfUsers] = useState([]);
 
   useEffect(() => {
-  
+
     async function fetchUsers() {
       let res = await axios.get("http://localhost:3000/faculty/getfaculty")
       setListOfUsers(res.data.result);
@@ -114,7 +115,7 @@ const Faculty = (props) => {
           justifyContent: "space-between",
         }}
       >
- 
+
       </Box>
 
       <Box
@@ -134,28 +135,30 @@ const Faculty = (props) => {
             borderRadius: "5px",
           }}
         >
-          <TextField
-            label='Search user'
-            variant='outlined'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
+      
         </Box>
+
         <DataGrid
-          sx={{
-            width: "100%",
-          }}
-          rows={listOfUsers}
+
           columns={columns}
-          getRowId={(row)=>row._id}
-          pageSize={6}
-          rowsPerPageOptions={[6]}
-          checkboxSelection
+          rows={listOfUsers}
+
+          getRowId={(row) => row._id}
+          components={{
+            Toolbar: GridToolbar,
+          }}
+
+        // filterModel={{
+        //   items: [
+        //     {
+        //       columnField: {
+        //         onChange: (event) => setinput(event.target.value)
+        //       },
+
+        //     },
+
+        //   ],
+        // }}
         />
       </Box>
     </Box>

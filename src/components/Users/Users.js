@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 // import { getUsers } from "../../api/queries";
 import { DataGrid } from "@mui/x-data-grid";
 import Avatar from "@mui/material/Avatar";
@@ -9,7 +9,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { Button, Typography } from "@mui/material";
 import { faker } from "@faker-js/faker";
 import axios from "axios";
-
+import DataContext from "../../context/DataContext";
+import { GridToolbar } from '@mui/x-data-grid';
+// import { useDemoData } from '@mui/x-data-grid-generator';
 const columns = [
   {
     field: "username",
@@ -44,8 +46,8 @@ const columns = [
     flex: 1,
   },
   {
-    field: "workingStatus",
-    headerName: "WorkingStatus",
+    field: "batchName",
+    headerName: "batchName",
     sortable: false,
     minWidth: 130,
     headerClassName: "users-header",
@@ -91,19 +93,25 @@ const columns = [
 ];
 
 const Users = (props) => {
- let id= faker.datatype.uuid()
-  const [listOfUsers, setListOfUsers] = useState([]);
-
+  const ctx = useContext(DataContext);
+ 
   useEffect(() => {
   
     async function fetchUsers() {
       let res = await axios.get("http://localhost:3000/student/getstudent")
-      setListOfUsers(res.data.result);
+      console.log(res.data);
+      ctx.setListOfUsers(res.data);
     }
     fetchUsers()
-  }, []);
-  console.log(listOfUsers);
+   
 
+  }, []);
+  
+
+
+
+  
+  
   return (
     <Box sx={{ padding: "10px" }}>
       <Box
@@ -135,29 +143,31 @@ const Users = (props) => {
             borderRadius: "5px",
           }}
         >
-          <TextField
-            label='Search user'
-            variant='outlined'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
+         
         </Box>
-        <DataGrid
-          sx={{
-            width: "100%",
-          }}
-          rows={listOfUsers}
+
+         <DataGrid
+      
           columns={columns}
+          rows={ctx.listOfUsers}
+         
           getRowId={(row)=>row._id}
-          pageSize={6}
-          rowsPerPageOptions={[6]}
-          checkboxSelection
-        />
+        components={{
+          Toolbar: GridToolbar,
+          }}
+    
+        // filterModel={{
+        //   items: [
+        //     {
+        //       columnField: {
+        //         onChange: (event) => setinput(event.target.value)
+        //       },
+            
+        //     },
+           
+        //   ],
+        // }}
+      />
       </Box>
     </Box>
   );

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DataContext from './DataContext'
+
 export default function ContextProvider({ children }) {
   const [manage, setManage] = useState({
     isLoggedIn: false,
@@ -8,6 +9,8 @@ export default function ContextProvider({ children }) {
     userdetails: ''
 
   })
+  const [listOfUsers, setListOfUsers] = useState([]);
+
 
   const loginHandler = (data) => {
   
@@ -27,7 +30,7 @@ export default function ContextProvider({ children }) {
   };
   return (
     <DataContext.Provider value={{
-      loginHandler, manage, setManage
+      loginHandler, manage, setManage,listOfUsers,setListOfUsers
     }}>
       {children}
     </DataContext.Provider>
