@@ -16,7 +16,7 @@ import DataContext from "./context/DataContext";
 import axios from 'axios';
 import FacultyDashboard from "./components/FacultyDashboard.js/adminDashboard";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard";
-
+import StudentNav from "./components/NavBar/StudentNav";
 function App() {
   const ctx = useContext(DataContext);
   const manage = ctx.manage;
@@ -37,7 +37,8 @@ function App() {
       <CssBaseline />
       {manage.usertype ==="admin" && manage.isLoggedIn && <NavBar />}
       {manage.usertype ==="faculty" && manage.isLoggedIn && <FacultyNavbar />}
-      <NavBar/>
+      {manage.usertype ==="student" && manage.isLoggedIn && <StudentNav/>}
+ 
 
       <main
         style={{
@@ -48,19 +49,19 @@ function App() {
       >
         <Routes>
 
-          {/* <Route path='/' element={<Login ></Login>}/>
+          <Route path='/' element={<Login ></Login>}/>
           
           {manage.isLoggedIn && <Route path='/dashboard' element={<AdminDashboard />} />}
           {manage.isLoggedIn && <Route path='/facultydashboard' element={<FacultyDashboard />} />}
+          {manage.isLoggedIn && <Route path="/student" element={<StudentDashboard  />} />}
           {manage.isLoggedIn && <Route path='/users' element={<Users authToken={manage.authToken} />} />}
           {manage.isLoggedIn && <Route path='/faculty' element={<Faculty authToken={manage.authToken} />} />}
           {manage.isLoggedIn && <Route path='/career' element={<Career authToken={manage.authToken} />} />}
-      
           {manage.isLoggedIn && <Route path='/registerUser' element={<UserRegistration />} />}
-         {manage.isLoggedIn && <Route path='/questionUpload' element={<QuestionUpload/>} />} */}
+         {manage.isLoggedIn && <Route path='/questionUpload' element={<QuestionUpload/>} />}
+      
           
        
-          <Route path="/student" element={ <StudentDashboard/>} />
        
 
         </Routes>
