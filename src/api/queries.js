@@ -6,6 +6,14 @@ export async function getDashboardData() {
     return [];
   }
 }
+export async function getStudentDashboardData() {
+  try {
+    const response = await fetch("/api/studentinfo");
+    return await response.json();
+  } catch (error) {
+    return [];
+  }
+}
 
 export async function getUsers() {
   try {
