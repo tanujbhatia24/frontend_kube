@@ -17,6 +17,8 @@ import axios from 'axios';
 import FacultyDashboard from "./components/FacultyDashboard.js/adminDashboard";
 import StudentDashboard from "./components/StudentDashboard/StudentDashboard";
 import StudentNav from "./components/NavBar/StudentNav";
+import PlacementStat from './components/PlacementStat/PlacementStat'
+import CompanyDatabase from "./components/PlacementStat/CompanyDatabase";
 function App() {
   const ctx = useContext(DataContext);
   const manage = ctx.manage;
@@ -59,6 +61,8 @@ function App() {
           {manage.isLoggedIn && <Route path='/career' element={<Career authToken={manage.authToken} />} />}
           {manage.isLoggedIn && <Route path='/registerUser' element={<UserRegistration />} />}
          {manage.isLoggedIn && <Route path='/questionUpload' element={<QuestionUpload/>} />}
+         <Route path='/placementstat' element={<PlacementStat />} />
+         <Route path='/companydatabase' element={<CompanyDatabase />} />
       
           
        
