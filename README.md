@@ -9,7 +9,7 @@ npm install --force
 
 Create `.env` file with following content but change the link to backend:
 ```bash
-REACT_APP_API_BASE_URL=http://localhost:3001
+REACT_APP_API_BASE_URL=http://localhost:3000
 ```
 
 ## Build Steps
